@@ -1,0 +1,67 @@
+        console.log("Hello World")
+
+        function getComputerChoice() {
+            let x = Math.random()
+            if (x <= 0.3) {
+                return "rock";
+            } else if (x <= 0.6) {
+                return "paper";
+            } else {
+                return "scissors"
+            }
+        }
+
+        function getUserChoice() {
+            let y = prompt("Enter your choice: ");
+            return y;
+        }
+
+        let userScore, computerScore;
+        userScore = 0;
+        computerScore = 0;
+
+        function playRound(userChoice,computerChoice) {
+             userChoice = getUserChoice().toLowerCase();
+             computerChoice = getComputerChoice();
+
+            if (userChoice === computerChoice) {
+                console.log("It's a Draw");
+                userScore = userScore;
+                computerScore = computerScore;
+            } else if (userChoice === "rock") {
+                if (computerChoice === "paper") {
+                    console.log("You loose! Paper beats Rock");
+                    computerScore++;
+                } else {
+                    console.log("You win! Rock beats Scissors");
+                    userScore++;
+                }
+            } else if (userChoice === "paper") {
+                if (computerChoice === "rock") {
+                    console.log("You win! Paper beats Rock");
+                    userScore++;
+                } else {
+                    console.log("You loose! Scissors beats Paper");
+                    computerScore++;
+                }
+            } else {
+                if (computerChoice === "paper") {
+                    console.log("You win! Scissors beats Paper");
+                    userScore++;
+                } else {
+                    console.log("You loose! Rock beats Scissors");
+                    computerScore++;
+                }
+            }
+        }
+
+        function playGame() {
+            for(let i=1; i<=5; i++) {
+                playRound(i);
+            }
+            console.log("Computer score: " + computerScore);
+            console.log("Your score: " + userScore);
+            (computerScore < userScore) ? alert("You win") : alert("You loose");
+        }
+
+        playGame()
