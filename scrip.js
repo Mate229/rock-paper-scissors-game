@@ -61,7 +61,7 @@
             }
             console.log("Computer score: " + computerScore);
             console.log("Your score: " + userScore);
-            (computerScore < userScore) ? alert("You win") : alert("You loose");
+            (computerScore < userScore) ? alert("You win") : (computerScore > userScore) ? alert("You loose") : alert("Draw");
         }
 
         playGame()
